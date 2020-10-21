@@ -1,4 +1,4 @@
-{ mkDerivation, lib, fetchgit, cmake, pkgconfig, git
+{ mkDerivation, lib, fetchgit, cmake, pkgconfig, git, gcc-unwrapped
 , qtbase, qtquickcontrols, openal, glew, vulkan-headers, vulkan-loader, libpng
 , ffmpeg, libevdev, python3
 , pulseaudioSupport ? true, libpulseaudio
@@ -33,7 +33,12 @@ mkDerivation {
     "-DUSE_SYSTEM_LIBPNG=ON"
     "-DUSE_SYSTEM_FFMPEG=ON"
     "-DUSE_NATIVE_INSTRUCTIONS=OFF"
+    "-DCMAKE_AR=${gcc-unwrapped}/bin/gcc-ar"
+    "-DCMAKE_RANLIB=${gcc-unwrapped}/bin/gcc-ranlib"
   ];
+
+  NIX_CFLAGS_COMPILE="-fuse-linker-plugin -flto";
+  NIX_CXXFLAGS_COMPILE="-fuse-linker-plugin -flto";
 
   nativeBuildInputs = [ cmake pkgconfig git ];
 
