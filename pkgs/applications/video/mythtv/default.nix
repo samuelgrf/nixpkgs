@@ -29,7 +29,7 @@ mkDerivation rec {
   ];
   nativeBuildInputs = [ pkgconfig which yasm libtool autoconf automake file ];
 
-  configureFlags = 
+  configureFlags =
     [ "--dvb-path=${linuxHeaders}/include" ];
 
   meta = with stdenv.lib; {

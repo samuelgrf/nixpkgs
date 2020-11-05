@@ -14,13 +14,13 @@
 
 mkDerivation {
   name = "kstars";
-  
+
   src = fetchgit {
     url = "https://anongit.kde.org/kstars.git";
     rev = "7acc527939280edd22823371dc4e22494c6c626a";
     sha256 = "1n1lgi7p3dj893fdnzjbnrha40p4apl0dy8zppcabxwrb1khb84v";
   };
-  
+
   nativeBuildInputs = [ extra-cmake-modules kdoctools ];
   buildInputs = [
     kconfig kdoctools kguiaddons ki18n kinit kiconthemes kio

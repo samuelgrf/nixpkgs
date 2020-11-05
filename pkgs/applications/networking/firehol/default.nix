@@ -74,7 +74,7 @@ stdenv.mkDerivation rec {
       @@ -10295,7 +10295,7 @@
        	kmaj=$1
        	kmin=$2
-       
+
       -	set -- $($UNAME_CMD -r)
       +	set -- $("$UNAME_CMD" -r)
        	eval $kmaj=\$1 $kmin=\$2
@@ -82,7 +82,7 @@ stdenv.mkDerivation rec {
        kernel_maj_min KERNELMAJ KERNELMIN
       '')
   ];
-  
+
   nativeBuildInputs = [ autoconf automake ];
   buildInputs = [
     curl iprange iproute ipset iptables iputils kmod

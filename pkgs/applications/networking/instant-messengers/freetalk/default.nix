@@ -5,7 +5,7 @@
 stdenv.mkDerivation rec {
   pname = "freetalk";
   version = "4.1";
-  
+
   src = fetchFromGitHub {
     owner = "GNUFreetalk";
     repo = "freetalk";

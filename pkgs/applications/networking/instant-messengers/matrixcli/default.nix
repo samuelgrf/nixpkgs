@@ -15,7 +15,7 @@ let
     name = "${pname}-${version}";
     pname = "matrix-python-sdk-matrixcli";
     version = "0.0.2019-08-15";
-    
+
     src = "${mainsrc}/matrix-python-sdk/";
 
     propagatedBuildInputs = [

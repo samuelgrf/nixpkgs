@@ -10,7 +10,7 @@ buildPythonPackage rec {
 
   format = "other";
   disabled = !isPy27;
-  
+
   src = fetchFromGitHub {
     owner = "travisb-ca";
     repo = pname;
@@ -21,7 +21,7 @@ buildPythonPackage rec {
   installPhase = ''
     mkdir -p $out/share/src
     install -m 755 -t $out/share/src nitpick.py
-  
+
     mkdir -p $out/bin
     ln -s $out/share/src/nitpick.py $out/bin/nitpick
   '';

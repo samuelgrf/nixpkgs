@@ -30,7 +30,7 @@ stdenv.mkDerivation rec {
     mkdir -p "$out/libexec/satallax"
     cp picosat-*/picosat picosat-*/picomus "$out/libexec/satallax"
 
-    ( 
+    (
       cd minisat
       export MROOT=$PWD
       cd core

@@ -25,7 +25,7 @@ stdenv.mkDerivation rec {
     substituteInPlace util/fluxbox-generate_menu.in \
       --subst-var-by PREFIX "$out"
   '';
-  
+
   meta = {
     description = "Full-featured, light-resource X window manager";
     longDescription = ''

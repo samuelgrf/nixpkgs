@@ -40,9 +40,9 @@ stdenv.mkDerivation rec {
     url = "mirror://sourceforge/gwyddion/gwyddion-${version}.tar.xz";
     sha256 = "0z83p3ifdkv5dds8s6fqqbycql1zmgppdc7ygqmm12z5zlrl9p12";
   };
-  
+
   nativeBuildInputs = [ pkg-config file ];
-  
+
   buildInputs = with stdenv.lib;
     [ gtk2 fftw ] ++
     optional openglSupport gnome2.gtkglext ++

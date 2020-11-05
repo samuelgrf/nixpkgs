@@ -10,7 +10,7 @@ let
     inherit nodejs;
     libtool = if pkgs.stdenv.isDarwin then pkgs.darwin.cctools else null;
   };
-locpkgs = 
+locpkgs =
 import ./node-packages.nix {
   inherit (pkgs) fetchurl fetchgit;
   inherit nodeEnv;

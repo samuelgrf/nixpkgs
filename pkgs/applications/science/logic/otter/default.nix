@@ -27,7 +27,7 @@ stdenv.mkDerivation {
     find . -perm -0100 -type f | xargs sed -i -e "s@/bin/rm@$(type -P rm)@g"
     find . -perm -0100 -type f | xargs sed -i -e "s@/bin/mv@$(type -P mv)@g"
 
-    sed -i -e "s/^XLIBS *=.*/XLIBS=-lXaw -lXt -lX11/" source/formed/Makefile 
+    sed -i -e "s/^XLIBS *=.*/XLIBS=-lXaw -lXt -lX11/" source/formed/Makefile
 
     make all
     make -C examples all

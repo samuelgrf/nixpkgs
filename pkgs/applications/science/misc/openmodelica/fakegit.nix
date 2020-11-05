@@ -11,7 +11,7 @@ let
     sed -i "s@%out@$out@g" ${path}
     chmod +x ${path}
   '';
-  
+
   hashname = r: let
     rpl = stdenv.lib.replaceChars [":" "/"] ["_" "_"];
   in

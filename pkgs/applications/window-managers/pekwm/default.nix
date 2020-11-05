@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
       longer resembles aewm++ at all. It has a much expanded
       feature-set, including window grouping (similar to ion, pwm, or
       fluxbox), autoproperties, xinerama, keygrabber that supports
-      keychains, and much more.      
+      keychains, and much more.
       - Lightweight and Unobtrusive, a window manager shouldn't be
         noticed.
       - Very configurable, we all work and think in different ways.

@@ -11,7 +11,7 @@ stdenv.mkDerivation {
   };
 
   patches = [ ./ocaml-includes.patch ./ocaml-3.12.patch ];
-  
+
   buildInputs = [ ocaml ncurses ];
 
   nativeBuildInputs = [ makeWrapper ];

@@ -19,9 +19,9 @@ stdenv.mkDerivation rec {
   buildInputs = with stdenv.lib;
   optionals localBios [ nasm ]
   ++  optionals sdlSupport [ SDL ];
-  
+
   bios = localBios;
-  
+
   builder = ./builder.sh;
 
   meta = with stdenv.lib; {

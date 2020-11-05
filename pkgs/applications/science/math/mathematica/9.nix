@@ -27,7 +27,7 @@ stdenv.mkDerivation rec {
 
   src = requireFile {
     name = "Mathematica_9.0.0_LINUX.sh";
-    message = '' 
+    message = ''
       This nix expression requires that Mathematica_9.0.0_LINUX.sh is
       already part of the store. Find the file on your Mathematica CD
       and add it to the nix store with nix-store --add-fixed sha256 <FILE>.

@@ -30,7 +30,7 @@ stdenv.mkDerivation rec {
 
   src = requireFile rec {
     name = "Mathematica_${version}_LINUX.sh";
-    message = '' 
+    message = ''
       This nix expression requires that ${name} is
       already part of the store. Find the file on your Mathematica CD
       and add it to the nix store with nix-store --add-fixed sha256 <FILE>.

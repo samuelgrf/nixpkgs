@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
       url = "https://git.sagemath.org/sage.git/patch?id2=8bdc326ba57d1bb9664f63cf165a9e9920cc1afc&id=dc673c17555efca611f68398d5013b66e9825463";
       sha256 = "1hhannz7xzprijakn2w2d0rhd5zv2zikik9p51i87bas3nc658f7";
     })
-    
+
     # `is_unitary` test in `matrix_double_dense.pyx` fails with some BLAS implementations
     # https://trac.sagemath.org/ticket/29297 should be included in 9.1
     (fetchpatch {
