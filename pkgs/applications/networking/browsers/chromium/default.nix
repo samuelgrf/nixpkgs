@@ -22,7 +22,14 @@
 }:
 
 let
-  llvmPackages = llvmPackages_11;
+  llvmPackages = llvmPackages_11.override {
+    customVersion = {
+      version = chromium.upstream-info.deps.clang.version;
+      rev = chromium.upstream-info.deps.clang.rev;
+      sha256 = chromium.upstream-info.deps.clang.sha256;
+    };
+  };
+
   stdenv = llvmPackages.stdenv;
 
   callPackage = newScope chromium;

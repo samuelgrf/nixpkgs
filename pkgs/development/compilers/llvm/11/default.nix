@@ -3,17 +3,35 @@
 , buildPackages
 , buildLlvmTools # tools, but from the previous stage, for cross
 , targetLlvmLibraries # libraries, but from the next stage, for cross
+, customVersion ? null
+, fetchFromGitHub
 }:
 
 let
   release_version = "11.0.0";
-  version = release_version; # differentiating these (variables) is important for RCs
+  # differentiating these (variables) is important for RCs
+  version =
+    if customVersion == null
+    then release_version
+    else customVersion.version;
   targetConfig = stdenv.targetPlatform.config;
 
-  fetch = name: sha256: fetchurl {
-    url = "https://github.com/llvm/llvm-project/releases/download/llvmorg-${release_version}/${name}-${version}.src.tar.xz";
-    inherit sha256;
-  };
+  fetch =
+    if customVersion == null
+    then
+      name: sha256: fetchurl {
+        url = "https://github.com/llvm/llvm-project/releases/download/llvmorg-${release_version}/${name}-${version}.src.tar.xz";
+        inherit sha256;
+      }
+    else
+      name: sha256:
+      with customVersion; fetchFromGitHub {
+        owner = "llvm";
+        repo = "llvm-project";
+        rev = customVersion.rev;
+        sha256 = customVersion.sha256;
+      } + "/${name}";
+
 
   clang-tools-extra_src = fetch "clang-tools-extra" "02bcwwn54661madhq4nxc069s7p7pj5gpqi8ww50w3anbpviilzy";
 
