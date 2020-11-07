@@ -3,6 +3,10 @@
     "version": "86.0.4240.183",
     "sha256": "1g39i82js7fm4fqb8i66d6xs0kzqjxzi4vzvvwz5y9rkbikcc4ma",
     "sha256bin64": "1r0dxqsx6j19hgwr3v2sdlb2vd7gb961c4wba4ymd8wy8j8pzly9",
+    "pgo-profile": {
+      "name": "chrome-linux-master-1597082402-c5bd486642405d828e9e780a3fe4cf0c960a0b58.profdata",
+      "sha256": "0ifxvii6fzx5aq1wlksz49qrljvv58779y472mlf5y0vxjk5knkd"
+    },
     "deps": {
       "gn": {
         "version": "2020-08-07",
@@ -16,6 +20,10 @@
     "version": "87.0.4280.40",
     "sha256": "07xh76fl257np68way6i5rf64qbvirkfddy7m5gvqb0fzcqd7dp3",
     "sha256bin64": "1b2z0aqlh28pqrk6dmabxp1d4mvp9iyfmi4kqmns4cdpg0qgaf41",
+    "pgo-profile": {
+       "name": "chrome-linux-4280-1604356843-75758dc7691325d08848840a6660d8bbac79840f.profdata",
+       "sha256": "1lajj3jizfrf8zzq39714g7w6n7b1758542x6927i9s0d4y1qirx"
+    },
     "deps": {
       "gn": {
         "version": "2020-09-09",
@@ -29,6 +37,10 @@
     "version": "88.0.4300.0",
     "sha256": "00cfs2rp4h8ybn2snr1d8ygg635hx7q5gv2aqriy1j6f8a1pgh1b",
     "sha256bin64": "110r1m14h91212nx6pfhn8wkics7wlwx1608l5cqsxxcpvpzl3pv",
+    "pgo-profile": {
+      "name": "chrome-linux-master-1604426269-c37b60c52a129039000efce9374c5d976d3c4e8a.profdata",
+      "sha256": "10mzlb5qqm2qz8s7f15hyjnpl7sbx0j1d6sr3gpm60icymdhqps3"
+    },
     "deps": {
       "gn": {
         "version": "2020-09-09",
