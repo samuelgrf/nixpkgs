@@ -35,13 +35,15 @@ in stdenv.mkDerivation (rec {
   src = fetch pname "0s94lwil98w7zb7cjrbnxli0z7gklb312pkw74xs1d6zk346hgwi";
   polly_src = fetch "polly" "0h442ivcslr3dv3q3g1nw5avh77f8cxsp6zild1hgspj266xpynw";
 
+  # TODO Also set sourceRoot on other expressions?
   unpackPhase = ''
-    unpackFile $src
-    mv llvm-${version}* llvm
+    cp -r $src/. .
+    chmod -R 777 *
+    #mv llvm-* llvm
     sourceRoot=$PWD/llvm
   '' + optionalString enablePolly ''
     unpackFile $polly_src
-    mv polly-* $sourceRoot/tools/polly
+    #mv polly-* $sourceRoot/tools/polly
   '';
 
   outputs = [ "out" "python" ]
@@ -139,6 +141,7 @@ in stdenv.mkDerivation (rec {
   ''
   + optionalString enableSharedLibraries ''
     moveToOutput "lib/libLLVM-*" "$lib"
+    moveToOutput "lib/libLLVM/." "$lib"
     moveToOutput "lib/libLLVM${stdenv.hostPlatform.extensions.sharedLibrary}" "$lib"
   ''
   + optionalString (enableSharedLibraries && (!stdenv.isDarwin)) ''

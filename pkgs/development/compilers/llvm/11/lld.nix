@@ -12,6 +12,11 @@ stdenv.mkDerivation rec {
 
   src = fetch pname "077xyh7sij6mhp4dc4kdcmp9whrpz332fa12rwxnzp3wgd5bxrzg";
 
+  unpackPhase = ''
+    cp -r $src/lld/. .
+    chmod -R 777 *
+  '';
+
   nativeBuildInputs = [ cmake ];
   buildInputs = [ llvm libxml2 ];
 

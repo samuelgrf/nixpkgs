@@ -3,12 +3,17 @@
 , buildPackages
 , buildLlvmTools # tools, but from the previous stage, for cross
 , targetLlvmLibraries # libraries, but from the next stage, for cross
-, customVersion ? null
+, customVersion ? {
+  version = "2020-08-18";
+  rev = "a1caa302970de86b15d360212b526be8f1d59641";
+  sha256 = "1j3z3ra9dp5jlfdfncq6y279dkb68xfr5mf5286db69i57zfdxjc";
+}
 , fetchFromGitHub
 }:
 
 let
-  release_version = "11.0.0";
+  # TODO Get this via update script?
+  release_version = "12.0.0";
   # differentiating these (variables) is important for RCs
   version =
     if customVersion == null
@@ -30,7 +35,7 @@ let
         repo = "llvm-project";
         rev = customVersion.rev;
         sha256 = customVersion.sha256;
-      } + "/${name}";
+      } /*+ "/${name}"*/;
 
 
   clang-tools-extra_src = fetch "clang-tools-extra" "02bcwwn54661madhq4nxc069s7p7pj5gpqi8ww50w3anbpviilzy";

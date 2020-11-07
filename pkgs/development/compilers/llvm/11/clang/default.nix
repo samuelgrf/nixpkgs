@@ -12,11 +12,17 @@ let
     inherit clang-tools-extra_src;
 
     unpackPhase = ''
-      unpackFile $src
-      mv clang-${version}* clang
+      #unpackFile $src
+      #mv clang-* clang
+      #sourceRoot=$PWD/clang
+      #unpackFile ${clang-tools-extra_src}
+
+      cp -r $src/clang .
+      chmod -R 777 *
       sourceRoot=$PWD/clang
-      unpackFile ${clang-tools-extra_src}
-      mv clang-tools-extra-* $sourceRoot/tools/extra
+      mkdir -p $sourceRoot/tools
+      cp -r $src/clang-tools-extra $sourceRoot/tools/extra
+      chmod -R 777 *
     '';
 
     nativeBuildInputs = [ cmake python3 lld ]
