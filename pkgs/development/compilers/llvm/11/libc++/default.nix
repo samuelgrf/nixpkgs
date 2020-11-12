@@ -1,4 +1,5 @@
 { lib, stdenv, fetch, cmake, python3, libcxxabi, llvm, fixDarwinDylibNames, version
+, buildOverride
 , enableShared ? true }:
 
 stdenv.mkDerivation {
@@ -7,12 +8,20 @@ stdenv.mkDerivation {
 
   src = fetch "libcxx" "0ylbkcd38zrrz9xmkq9na3d9s8d96hc286dwfwd73wi205lyc7kc";
 
-  postUnpack = ''
-    unpackFile ${libcxxabi.src}
-    mv libcxxabi-* libcxxabi
-    unpackFile ${llvm.src}
-    mv llvm-* llvm
-  '';
+  unpackPhase =
+    if buildOverride == null then ''
+      unpackFile $src
+      mv libcxx-*/* .
+      unpackFile ${libcxxabi.src}
+      mv libcxxabi-* libcxxabi
+      unpackFile ${llvm.src}
+      mv llvm-* llvm
+    ''
+    else ''
+      cp -r $src/. .
+      chmod -R u+w .
+      sourceRoot=$PWD/libcxx
+    '';
 
   patches = stdenv.lib.optional stdenv.hostPlatform.isMusl ../../libcxx-0001-musl-hacks.patch;
 

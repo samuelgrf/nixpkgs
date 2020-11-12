@@ -1,4 +1,4 @@
-{ newScope, config, stdenv, fetchurl, makeWrapper
+{ newScope, config, stdenv, overrideCC, fetchurl, makeWrapper
 , llvmPackages_11, ed, gnugrep, coreutils, xdg_utils
 , glib, gtk3, gnome3, gsettings-desktop-schemas, gn, fetchgit
 , libva ? null
@@ -30,7 +30,7 @@ let
     buildOverride = upstream-info.deps.clang;
   };
 
-  stdenv = llvmPackages.stdenv;
+  stdenv = overrideCC llvmPackages.stdenv llvmPackages.lldClang;
 
   callPackage = newScope chromium;
 
