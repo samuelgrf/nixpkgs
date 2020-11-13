@@ -41,6 +41,16 @@ with lib.maintainers; {
     scope = "Maintain Freedesktop.org packages for graphical desktop.";
   };
 
+  gnome = {
+    members = [
+      dasj19
+      hedning
+      jtojnar
+      worldofpeace
+    ];
+    scope = "Maintain GNOME desktop environment and platform.";
+  };
+
   golang = {
     members = [
       c00w
@@ -56,16 +66,6 @@ with lib.maintainers; {
     scope = "Maintain Golang compilers.";
   };
 
-  gnome = {
-    members = [
-      hedning
-      jtojnar
-      worldofpeace
-      dasj19
-    ];
-    scope = "Maintain GNOME desktop environment and platform.";
-  };
-
   jitsi = {
     members = [
       mmilata
@@ -78,11 +78,11 @@ with lib.maintainers; {
 
   matrix = {
     members = [
-      ma27
-      pacien
-      fadenb
-      mguentner
       ekleog
+      fadenb
+      ma27
+      mguentner
+      pacien
       ralith
     ];
     scope = "Maintain the ecosystem around Matrix, a decentralized messenger.";
