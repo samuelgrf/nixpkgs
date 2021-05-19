@@ -23990,6 +23990,8 @@ in
 
   hyperledger-fabric = callPackage ../tools/misc/hyperledger-fabric { };
 
+  invoice-creator = rechnungsverwalter.override { lang = "en"; };
+
   jackline = callPackage ../applications/networking/instant-messengers/jackline {
     ocamlPackages = ocaml-ng.ocamlPackages_4_08;
   };
@@ -24009,6 +24011,8 @@ in
   pinboard-notes-backup = haskell.lib.justStaticExecutables haskellPackages.pinboard-notes-backup;
 
   pixelnuke = callPackage ../applications/graphics/pixelnuke { };
+
+  rechnungsverwalter = callPackage ../applications/office/rechnungsverwalter { };
 
   slack = callPackage ../applications/networking/instant-messengers/slack { };
 
