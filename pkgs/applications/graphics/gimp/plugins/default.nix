@@ -81,6 +81,38 @@ in
     };
   };
 
+  bimp = pluginDerivation rec {
+    /* menu:
+       File/Batch Image Manipulation...
+    */
+    pname = "bimp";
+    version = "2.5";
+
+    src = fetchFromGitHub {
+      owner = "alessandrofrancesconi";
+      repo = "gimp-plugin-bimp";
+      rev = "v${version}";
+      hash = "sha256-s2FtSLzjfi0KbfE+6m1T6GaqXo5ZJJasQimouTp/EkA=";
+    };
+
+    nativeBuildInputs = with pkgs; [ which ];
+
+    installPhase = ''
+      runHook preInstall
+
+      installPlugin bin/bimp
+
+      runHook postInstall
+    '';
+
+    meta = with lib; {
+      description = "Batch Image Manipulation Plugin for GIMP";
+      homepage = "https://github.com/alessandrofrancesconi/gimp-plugin-bimp";
+      license = licenses.gpl2Plus;
+      maintainers = with maintainers; [ samuelgrf ];
+    };
+  };
+
   farbfeld = pluginDerivation rec {
     pname = "farbfeld";
     version = "unstable-2019-08-12";
